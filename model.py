@@ -89,3 +89,33 @@ if os.path.exists(test_images_dir):
                 predict_image(img_path)
 else:
     print("❌ Test images directory not found!")
+
+
+
+# Save the trained model
+MODEL_PATH = "saved_model/cat_dog_unknown_classifier"
+model.save(MODEL_PATH)
+print(f"✅ Model saved at {MODEL_PATH}")
+
+# Evaluate model on test dataset
+test_loss, test_acc = model.evaluate(test_ds)
+print(f"\n📊 Test Accuracy: {test_acc:.4f}, Test Loss: {test_loss:.4f}")
+
+# Function to calculate model accuracy manually
+def evaluate_model(dataset):
+    correct = 0
+    total = 0
+    
+    for images, labels in dataset:
+        predictions = model.predict(images)  # Get predictions
+        predicted_labels = np.argmax(predictions, axis=1)  # Convert softmax to class index
+        true_labels = np.argmax(labels.numpy(), axis=1)  # Convert one-hot to class index
+        
+        correct += np.sum(predicted_labels == true_labels)  # Count correct predictions
+        total += labels.shape[0]  # Total images
+    
+    accuracy = (correct / total) * 100
+    print(f"\n📈 Model Correct Predictions: {correct}/{total} ({accuracy:.2f}%)")
+
+# Call the function to print correct vs. incorrect
+evaluate_model(test_ds)
