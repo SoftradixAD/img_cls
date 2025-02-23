@@ -4,8 +4,8 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 
 # Load trained model
-model = load_model("cat_dog_classifier.h5")
-
+model = load_model("saved_model/cat_dog_unknown_classifier")
+print(model.summary())
 # Define class names (must match dataset order)
 CLASS_NAMES = ['cat', 'dog', 'unknown']
 
@@ -27,4 +27,4 @@ def predict_image(img_path):
     print(f"Prediction: {predicted_class} ({confidence:.2f})")
 
 # Example usage
-predict_image(r"C:\Users\AKSHAYDHADWAL\Documents\python_codes\dataset\test\cat\cat_image_93.jpg")
+predict_image(r"C:\Users\AKSHAYDHADWAL\Documents\python_codes\unknown\unknown_997.jpg")
