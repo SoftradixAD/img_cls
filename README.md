@@ -65,13 +65,6 @@ Simply open `index.html` in your browser and upload an image to classify.
 
 ---
 
-## 🖼️ User Interface Preview
-The web interface provides an intuitive image upload system with futuristic styling, allowing users to easily upload an image and view the classification results.
-
-![Classifier UI Preview](assets/ui_preview.png) *(Replace with actual screenshot)*
-
----
-
 ## 📌 API Endpoint
 ### **POST /predict**
 Uploads an image and returns a classification.
@@ -110,11 +103,6 @@ Pull requests are welcome! If you find an issue, feel free to create one or subm
 ## 🌟 Acknowledgments
 - [TensorFlow](https://www.tensorflow.org/)
 - [Flask](https://flask.palletsprojects.com/)
-
----
-
-## 📬 Contact
-For queries or collaborations, reach out via [your.email@example.com](mailto:your.email@example.com).
 
 ---
 
